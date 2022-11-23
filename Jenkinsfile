@@ -4,7 +4,6 @@ pipeline {
     stage('Clown down'){
       agent {
         label 'master-label'
-
         }
       steps {
       stash excludes: '.git/', name: 'code'
@@ -26,8 +25,13 @@ pipeline {
             }
 
           }
+          options {
+              skipDefaultCheckout true
+          }
           steps {
+            unstash 'code'
             sh 'ci/build-app.sh'
+            
           }
         }
 
