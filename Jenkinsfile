@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('stage1') {
+    stage('parallel execution') {
       parallel {
         stage('stage1') {
           steps {
@@ -18,7 +18,6 @@ pipeline {
           }
           steps {
             sh 'ci/build-app.sh'
-            echo 'echo "Hello"'
           }
         }
 
