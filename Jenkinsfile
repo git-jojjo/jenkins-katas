@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Clown down'){
       agent {
-        label 'swarm'
+        label 'master-label'
 
         }
       steps {
