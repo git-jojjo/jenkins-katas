@@ -34,7 +34,22 @@ pipeline {
             
           }
         }
+         stage('test-app') {
+          agent {
+            docker {
+              image 'gradle:6-jdk11'
+            }
 
+          }
+          options {
+              skipDefaultCheckout true
+          }
+          steps {
+            unstash 'code'
+            sh 'ci/unit-test-app.sh'
+            junit 'app/build/test-results/test/TEST-*.xml'
+          }
+        }
       }
     }
 
@@ -48,4 +63,9 @@ pipeline {
   environment {
     Hello = 'Hello'
   }
+  post {
+    cleanup {
+        deleteDir() /* clean up our workspace */
+    }
+}
 }
