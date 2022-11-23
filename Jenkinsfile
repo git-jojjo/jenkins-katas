@@ -22,12 +22,12 @@ pipeline {
           }
         }
 
-        stage('parallel execution') {
-          steps {
-            archiveArtifacts(artifacts: 'app/build/libs', allowEmptyArchive: true)
-          }
-        }
+      }
+    }
 
+    stage('archive artifacts') {
+      steps {
+        archiveArtifacts 'app/build/libs'
       }
     }
 
