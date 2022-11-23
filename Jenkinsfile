@@ -1,6 +1,8 @@
 pipeline {
   agent any
-  
+  environment {
+      docker_username = 'jojjodock'
+  }
   stages {
     stage('Clown down'){
       agent {
