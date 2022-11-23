@@ -17,8 +17,8 @@ pipeline {
 
           }
           steps {
-            echo 'Hello'
             sh 'ci/build-app.sh'
+            echo 'echo "Hello"'
           }
         }
 
