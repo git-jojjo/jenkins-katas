@@ -24,7 +24,7 @@ pipeline {
 
         stage('archive') {
           steps {
-            archiveArtifacts 'app/build/libs'
+            archiveArtifacts(artifacts: 'app/build/libs', allowEmptyArchive: true)
           }
         }
 
