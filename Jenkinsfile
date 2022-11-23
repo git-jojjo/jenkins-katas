@@ -1,6 +1,16 @@
 pipeline {
   agent any
   stages {
+    stage('Clown down'){
+      agent {
+        label 'swarm'
+
+        }
+      steps {
+      stash excludes: '.git/', name: 'code'
+      }
+
+    }
     stage('parallel execution') {
       parallel {
         stage('stage1') {
