@@ -13,12 +13,12 @@ pipeline {
           agent {
             docker {
               image 'gradle:6-jdk11'
-              args 'ci/build-app.sh'
             }
 
           }
           steps {
             echo 'Hello'
+            sh 'ci/build-app.sh'
           }
         }
 
