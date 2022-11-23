@@ -22,7 +22,7 @@ pipeline {
           }
         }
 
-        stage('archive') {
+        stage('parallel execution') {
           steps {
             archiveArtifacts(artifacts: 'app/build/libs', allowEmptyArchive: true)
           }
